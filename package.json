@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm run -C play dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "vue": "^3.4.35"
+  },
+  "dependencies": {
+    "@fz-mini/components": "workspace:^",
+    "@fz-mini/theme-chalk": "workspace:^",
+    "@fz-mini/utils": "workspace:^"
+  }
+}
