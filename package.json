@@ -15,8 +15,9 @@
     "vue": "^3.4.35"
   },
   "dependencies": {
-    "@fz-mini/components": "workspace:^",
-    "@fz-mini/theme-chalk": "workspace:^",
-    "@fz-mini/utils": "workspace:^"
+    "@fz-mini/components": "workspace:*",
+    "@fz-mini/hooks": "workspace:*",
+    "@fz-mini/theme-chalk": "workspace:*",
+    "@fz-mini/utils": "workspace:*"
   }
 }
