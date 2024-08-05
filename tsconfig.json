@@ -19,10 +19,15 @@
 
     /* Type Checking */
     "strict": true /* 默认严格模式 */,
-    "noImplicitAny": false /* 支持类型不标注默认为any */,
+    "noImplicitAny": true /* 支持类型不标注默认为any */,
     "skipLibCheck": true /* 跳过类库检测 */
   },
 
   "exclude": ["node_modules", "dist/**", "**/__tests__"],
-  "include": []
+  "include": [
+    "packages",
+    "typings/component.d.ts",
+    "play/src/env.d.ts",
+    "play/src/**/*"
+  ]
 }

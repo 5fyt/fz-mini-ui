@@ -1,7 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Add } from '@vicons/ionicons5'
+</script>
 
 <template>
-  <div>ss</div>
+  <fz-icon>
+    <Add />
+  </fz-icon>
 </template>
 
 <style scoped></style>

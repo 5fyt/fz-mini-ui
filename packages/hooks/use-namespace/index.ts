@@ -14,7 +14,7 @@ const _bem = (namespace, block, blockSuffix, element, modifier) => {
   }
   return cls
 }
-const useNamespace = (block: string) => {
+export const useNamespace = (block: string) => {
   const namespace = ref('fz')
   const b = (blockSuffix = '') =>
     _bem(namespace.value, block, blockSuffix, '', '')
@@ -62,4 +62,3 @@ const useNamespace = (block: string) => {
     is,
   }
 }
-export default useNamespace

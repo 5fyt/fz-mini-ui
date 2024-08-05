@@ -1,5 +1,11 @@
 import { createApp } from 'vue'
-import './style.css'
+import '@fz-mini/theme-chalk/src/index.scss'
 import App from './App.vue'
+import { FzIcon } from '@fz-mini/components'
+const plugins = [FzIcon]
+const app = createApp(App)
 
-createApp(App).mount('#app')
+plugins.forEach((plugin) => {
+  app.use(plugin)
+})
+app.mount('#app')
