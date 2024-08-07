@@ -1,5 +1,5 @@
 import { definePropType } from '@fz-mini/utils'
-import { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 import type Icon from './icon.vue'
 export const iconProps = {
   /**

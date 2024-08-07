@@ -1,8 +1,8 @@
 {
   "name": "@fz-mini/components",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
   "description": "",
-  "main": "index.ts",
-  "license": "ISC"
+  "license": "ISC",
+  "main": "index.ts"
 }

@@ -1,7 +1,13 @@
 import { ref } from 'vue'
 const statePrefix = 'is-'
 //规则化生成class类名
-const _bem = (namespace, block, blockSuffix, element, modifier) => {
+const _bem = (
+  namespace: string,
+  block: string,
+  blockSuffix: string,
+  element: string,
+  modifier: string,
+) => {
   let cls = `${namespace}-${block}`
   if (blockSuffix) {
     cls += `-${blockSuffix}`

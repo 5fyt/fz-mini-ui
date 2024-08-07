@@ -1,7 +1,7 @@
 {
   "name": "@fz-mini/utils",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
   "description": "",
   "main": "index.ts"
 }

@@ -4,10 +4,11 @@
   </i>
 </template>
 <script lang="ts" setup>
-import { computed, CSSProperties } from 'vue'
-import { iconProps } from './icon'
+import { computed } from 'vue'
 import { useNamespace } from '@fz-mini/hooks'
 import { addUnit, isUndefined } from '@fz-mini/utils'
+import { iconProps } from './icon'
+import type { CSSProperties } from 'vue'
 defineOptions({
   name: 'FzIcon',
 })

@@ -1,7 +1,7 @@
 {
   "name": "@fz-mini/hooks",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
   "description": "",
   "main": "index.ts",
   "module": "index.ts"
