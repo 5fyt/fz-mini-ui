@@ -1,33 +1,10 @@
 {
-  "compilerOptions": {
-    "target": "es6" /* 设置es6作为js语言 */,
-    "lib": ["ESNext", "DOM"] /* 再编译时运行的库*/,
-    "jsx": "preserve" /* 不允许转译jsx语法 */,
-    "experimentalDecorators": true /*允许支持装饰器语法 */,
-    "noLib": false /* 不处理类库 */,
-
-    /* Modules */
-    "module": "ESNext" /* Specify what module code is generated. */,
-    "moduleResolution": "node" /* 指定node 作为解析文件查找 */,
-
-    "declaration": false /* 默认不需要声明文件 */,
-    "sourceMap": true /* 生成source map 文件 */,
-    "removeComments": true /* 删除注释 */,
-    "allowSyntheticDefaultImports": true /* Allow 'import x from y' when a module doesn't have a default export. 允许文件导入再文件没有默认导出的情况下 */,
-    "esModuleInterop": true /* 支持es6,commomjs语法 */,
-    "forceConsistentCasingInFileNames": true /* 强制区分大小写 */,
-
-    /* Type Checking */
-    "strict": true /* 默认严格模式 */,
-    "noImplicitAny": true /* 支持类型不标注默认为any */,
-    "skipLibCheck": true /* 跳过类库检测 */
-  },
-
-  "exclude": ["node_modules", "dist/**", "**/__tests__"],
-  "include": [
-    "packages",
-    "typings/component.d.ts",
-    "play/src/env.d.ts",
-    "play/src/**/*"
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.web.json" },
+    { "path": "./tsconfig.play.json" }
+    // { "path": "./tsconfig.node.json" },
+    // { "path": "./tsconfig.vite-config.json" },
+    // { "path": "./tsconfig.vitest.json" }
   ]
 }

@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm run -C play dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "runall": "pnpm run typecheck:web && pnpm run typecheck:play",
+    "typecheck": "run-p typecheck:web typecheck:play",
+    "typecheck:web": "vue-tsc -p tsconfig.web.json --composite false --noEmit",
+    "typecheck:play": "vue-tsc -p tsconfig.play.json --composite false --noEmit",
+    "typecheck:vitest": "vue-tsc -p tsconfig.vitest.json --composite false --noEmit"
   },
   "keywords": [],
   "author": "fym",
@@ -14,9 +18,11 @@
     "vue": "^3.4.35"
   },
   "devDependencies": {
+    "@types/node": "^22.1.0",
     "@vicons/ionicons5": "^0.12.0",
     "sass": "^1.77.8",
     "typescript": "^5.5.4",
+    "unplugin-vue-define-options": "^1.4.9",
     "vue": "^3.4.35"
   },
   "dependencies": {
