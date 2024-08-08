@@ -3,4 +3,4 @@ dist
 pnpm-lock.yaml
 docs/components.d.ts
 play
-!.*
+

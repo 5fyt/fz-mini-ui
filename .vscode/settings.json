@@ -1,6 +1,7 @@
 {
   "editor.formatOnSave": true,
   "editor.formatOnType": false,
+  "prettier.trailingComma": "none",
   "eslint.probe": [
     "javascript",
     "javascriptreact",
