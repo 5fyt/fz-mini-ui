@@ -1,0 +1,6 @@
+{
+  "name": "@fz-mini/constants",
+  "private": true,
+  "license": "ISC",
+  "main": "index.js"
+}

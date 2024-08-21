@@ -15,10 +15,11 @@
     "prepare": "husky"
   },
   "peerDependencies": {
-    "vue": "^3.4.35"
+    "vue": "^3.4.0"
   },
   "dependencies": {
     "@fz-mini/components": "workspace:*",
+    "@fz-mini/constants": "workspace:^",
     "@fz-mini/hooks": "workspace:*",
     "@fz-mini/theme-chalk": "workspace:*",
     "@fz-mini/utils": "workspace:*"

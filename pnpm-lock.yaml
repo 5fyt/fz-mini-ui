@@ -11,6 +11,9 @@ importers:
       '@fz-mini/components':
         specifier: workspace:*
         version: link:packages/components
+      '@fz-mini/constants':
+        specifier: workspace:^
+        version: link:packages/constants
       '@fz-mini/hooks':
         specifier: workspace:*
         version: link:packages/hooks
@@ -37,8 +40,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0
       husky:
-        specifier: ^9.1.4
-        version: 9.1.4
+        specifier: ^8.0.0
+        version: 8.0.3
       lint-staged:
         specifier: ^15.2.8
         version: 15.2.8
@@ -60,6 +63,8 @@ importers:
       vue:
         specifier: ^3.4.35
         version: 3.4.35(typescript@5.5.4)
+
+  internal/build: {}
 
   internal/eslint-config:
     dependencies:
@@ -113,7 +118,29 @@ importers:
         specifier: ^8.23.1
         version: 8.23.1
 
-  packages/components: {}
+  packages/components:
+    dependencies:
+      vue:
+        specifier: ^3.4.0
+        version: 3.4.35(typescript@5.5.4)
+
+  packages/constants: {}
+
+  packages/fz-mini:
+    dependencies:
+      '@types/lodash':
+        specifier: ^4.17.7
+        version: 4.17.7
+      '@types/lodash-es':
+        specifier: ^4.17.12
+        version: 4.17.12
+      vue:
+        specifier: ^3.2.0
+        version: 3.4.35(typescript@5.5.4)
+    devDependencies:
+      '@types/node':
+        specifier: ^22.4.2
+        version: 22.4.2
 
   packages/hooks: {}
 
@@ -618,6 +645,16 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: false
 
+  /@types/lodash-es@4.17.12:
+    resolution: {integrity: sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ==}
+    dependencies:
+      '@types/lodash': 4.17.7
+    dev: false
+
+  /@types/lodash@4.17.7:
+    resolution: {integrity: sha512-8wTvZawATi/lsmNu10/j2hk1KEP0IvjubqPE3cu1Xz7xfXXt5oCq3SNUz4fMIP4XGF9Ky+Ue2tBA3hcS7LSBlA==}
+    dev: false
+
   /@types/mdast@3.0.15:
     resolution: {integrity: sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==}
     dependencies:
@@ -628,6 +665,12 @@ packages:
     resolution: {integrity: sha512-AOmuRF0R2/5j1knA3c6G3HOk523Ga+l+ZXltX8SF1+5oqcXijjfTd8fY3XRZqSihEu9XhtQnKYLmkFaoxgsJHw==}
     dependencies:
       undici-types: 6.13.0
+    dev: true
+
+  /@types/node@22.4.2:
+    resolution: {integrity: sha512-nAvM3Ey230/XzxtyDcJ+VjvlzpzoHwLsF7JaDRfoI0ytO0mVheerNmM45CtA0yOILXwXXxOrcUWH3wltX+7PSw==}
+    dependencies:
+      undici-types: 6.19.8
     dev: true
 
   /@types/normalize-package-data@2.4.4:
@@ -2119,9 +2162,9 @@ packages:
     engines: {node: '>=16.17.0'}
     dev: true
 
-  /husky@9.1.4:
-    resolution: {integrity: sha512-bho94YyReb4JV7LYWRWxZ/xr6TtOTt8cMfmQ39MQYJ7f/YE268s3GdghGwi+y4zAeqewE5zYLvuhV0M0ijsDEA==}
-    engines: {node: '>=18'}
+  /husky@8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 
@@ -3411,6 +3454,10 @@ packages:
 
   /undici-types@6.13.0:
     resolution: {integrity: sha512-xtFJHudx8S2DSoujjMd1WeWvn7KKWFRESZTMeL1RptAYERu29D6jphMjjY+vn96jvN3kVPDNxU/E13VTaXj6jg==}
+    dev: true
+
+  /undici-types@6.19.8:
+    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
     dev: true
 
   /unist-util-stringify-position@2.0.3:

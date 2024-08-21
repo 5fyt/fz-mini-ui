@@ -1,8 +1,14 @@
 {
   "name": "@fz-mini/components",
-  "version": "1.0.0",
-  "private": true,
-  "description": "",
-  "license": "ISC",
-  "main": "index.ts"
+  "version": "0.0.5",
+  "description": "all components are settled here",
+  "main": "index.ts",
+  "module": "index.ts",
+  "unpkg": "index.js",
+  "jsdelivr": "index.js",
+  "peerDependencies": {
+    "vue": "^3.4.0"
+  },
+  "types": "index.d.ts",
+  "sideEffects": false
 }

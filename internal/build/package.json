@@ -1,0 +1,12 @@
+{
+  "name": "@fz-mini/build",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build Toolchain for Fz Mini",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
