@@ -1,8 +1,10 @@
 {
-  "version": "1.0.0",
   "private": true,
-  "description": "",
-  "main": "index.js",
+  "workspaces": [
+    "packages/*",
+    "play",
+    "docs"
+  ],
   "scripts": {
     "dev": "pnpm run -C play dev",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
@@ -22,7 +24,11 @@
     "@fz-mini/constants": "workspace:^",
     "@fz-mini/hooks": "workspace:*",
     "@fz-mini/theme-chalk": "workspace:*",
-    "@fz-mini/utils": "workspace:*"
+    "@fz-mini/utils": "workspace:*",
+    "@types/lodash": "^4.17.7",
+    "@types/lodash-es": "^4.17.12",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21"
   },
   "devDependencies": {
     "@fz-mini/eslint-config": "workspace:*",
@@ -33,10 +39,8 @@
     "husky": "^8.0.0",
     "lint-staged": "^15.2.8",
     "prettier": "^3.3.3",
-    "pretty-quick": "^4.0.0",
     "sass": "^1.77.8",
     "typescript": "^5.5.4",
-    "unplugin-vue-define-options": "^1.4.9",
     "vue": "^3.4.35"
   },
   "lint-staged": {

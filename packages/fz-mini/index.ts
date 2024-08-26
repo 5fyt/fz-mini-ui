@@ -1,11 +1,6 @@
-import { INSTALLED_KEY } from '@fz-mini/constants'
-import components from './component'
-
-const FzMini = {
-  install(app: any) {
-    if (app[INSTALLED_KEY]) return
-    app[INSTALLED_KEY] = true
-    components.forEach((c) => app.use(c))
-  },
-}
-export default FzMini
+import installer from './defaults'
+export * from './make-installer'
+export * from './component'
+export default installer
+export const install = installer.install
+export const version = installer.version
