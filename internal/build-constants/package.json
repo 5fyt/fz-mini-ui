@@ -1,0 +1,16 @@
+{
+  "name": "@fz-mini/build-constants",
+  "version": "0.0.1",
+  "description": "Build constants for Fz mini",
+  "keywords": [
+    "fz-mini"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "unbuild",
+    "dev": "pnpm run stub"
+  },
+  "devDependencies": {
+    "unbuild": "^2.0.0"
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"component.mjs","sources":["../../../packages/fz-mini/component.ts"],"sourcesContent":["import { FzIcon } from '@fz-mini/components/icon'\nimport type { Plugin } from 'vue'\n\nexport default [FzIcon] as Plugin[]\n"],"names":[],"mappings":";;AAGA,iBAAe,CAAC,MAAM,CAAA;;;;"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"defaults.mjs","sources":["../../../packages/fz-mini/defaults.ts"],"sourcesContent":["import Components from './component'\nimport { makeInstaller } from './make-installer'\n\nexport default makeInstaller([...Components])\n"],"names":[],"mappings":";;;AAGA,gBAAe,aAAc,CAAA,CAAC,GAAG,UAAU,CAAC,CAAA;;;;"}

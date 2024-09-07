@@ -1,0 +1,13 @@
+{
+  "name": "@fz-mini/build-utils",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Build utils from Fz Mini",
+  "keywords": [
+    "fz-mini"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

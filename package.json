@@ -9,6 +9,9 @@
     "dev": "pnpm run -C play dev",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
     "lint:fix": "pnpm run lint --fix",
+    "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
+    "clean:dist": "rimraf dist",
+    "build": "pnpm run -C internal/build start",
     "runall": "pnpm run typecheck:web && pnpm run typecheck:play",
     "typecheck": "run-p typecheck:web typecheck:play",
     "typecheck:web": "vue-tsc -p tsconfig.web.json --composite false --noEmit",
@@ -16,21 +19,21 @@
     "typecheck:vitest": "vue-tsc -p tsconfig.vitest.json --composite false --noEmit",
     "prepare": "husky"
   },
-  "peerDependencies": {
-    "vue": "^3.4.0"
-  },
   "dependencies": {
     "@fz-mini/components": "workspace:*",
-    "@fz-mini/constants": "workspace:^",
+    "@fz-mini/constants": "workspace:*",
     "@fz-mini/hooks": "workspace:*",
     "@fz-mini/theme-chalk": "workspace:*",
     "@fz-mini/utils": "workspace:*",
     "@types/lodash": "^4.17.7",
     "@types/lodash-es": "^4.17.12",
     "lodash": "^4.17.21",
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.21",
+    "unplugin-vue-macros": "^2.11.6"
   },
   "devDependencies": {
+    "@esbuild-kit/cjs-loader": "^2.2.1",
+    "@fz-mini/build-utils": "workspace:*",
     "@fz-mini/eslint-config": "workspace:*",
     "@types/node": "^22.1.0",
     "@vicons/ionicons5": "^0.12.0",
@@ -41,7 +44,7 @@
     "prettier": "^3.3.3",
     "sass": "^1.77.8",
     "typescript": "^5.5.4",
-    "vue": "^3.4.35"
+    "vue": "^3.4.31"
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx,md,json}": "eslint --fix"
