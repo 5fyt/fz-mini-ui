@@ -1,8 +1,8 @@
 'use strict';
 
-require('./packages/constants/index.js');
+require('./constants/index.js');
 var version = require('./version.js');
-var key = require('./packages/constants/key.js');
+var key = require('./constants/key.js');
 
 const makeInstaller = (components) => {
   const install = (app) => {

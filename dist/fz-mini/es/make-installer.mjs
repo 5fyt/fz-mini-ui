@@ -1,6 +1,6 @@
-import './packages/constants/index.mjs';
+import './constants/index.mjs';
 import { version } from './version.mjs';
-import { INSTALLED_KEY } from './packages/constants/key.mjs';
+import { INSTALLED_KEY } from './constants/key.mjs';
 
 const makeInstaller = (components) => {
   const install = (app) => {

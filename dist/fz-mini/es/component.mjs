@@ -1,4 +1,4 @@
-import { FzIcon } from './packages/components/icon/index.mjs';
+import { FzIcon } from './components/icon/index.mjs';
 
 var Components = [FzIcon];
 

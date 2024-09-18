@@ -1,0 +1,1 @@
+{"version":3,"file":"index.mjs","sources":["../../../../../packages/components/icon/index.ts"],"sourcesContent":["import { withInstall } from '@fz-mini/utils'\r\nimport Icon from './src/icon.vue'\r\n\r\nexport const FzIcon = withInstall(Icon)\r\nexport default FzIcon\r\nexport * from './src/icon'\r\n"],"names":["Icon"],"mappings":";;;;;;AAGa,MAAA,MAAA,GAAS,YAAYA,SAAI;;;;"}

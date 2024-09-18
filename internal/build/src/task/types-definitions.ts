@@ -1,9 +1,10 @@
 import path from 'path'
 import { mkdir, readFile, writeFile } from 'fs/promises'
-import { OutputFile, Project } from 'ts-morph'
+import { Project } from 'ts-morph'
 import consola from 'consola'
 import * as vueCompiler from 'vue/compiler-sfc'
 import glob from 'fast-glob'
+import chalk from 'chalk'
 import {
   buildOutput,
   epRoot,
@@ -11,9 +12,8 @@ import {
   pkgRoot,
   projRoot,
 } from '@fz-mini/build-utils'
-import { CompilerOptions, SourceFile } from 'ts-morph'
-import chalk from 'chalk'
 import { pathRewriter } from '../utils'
+import type { CompilerOptions, SourceFile } from 'ts-morph'
 const TSCONFIG_PATH = path.resolve(projRoot, 'tsconfig.web.json')
 const outDir = path.resolve(buildOutput, 'types')
 
