@@ -14,3 +14,6 @@ export const buildRoot = resolve(projRoot, 'internal', 'build')
 //dist 打包目录
 export const buildOutput = resolve(projRoot, 'dist')
 export const epOutput = resolve(buildOutput, 'fz-mini')
+
+//package 目录
+export const epPackage = resolve(epRoot, 'package.json')

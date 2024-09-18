@@ -10,7 +10,12 @@ import { rollup } from 'rollup'
 import { parallel } from 'gulp'
 import { PKG_CAMELCASE_NAME } from '@fz-mini/build-constants'
 import { epOutput, epRoot } from '@fz-mini/build-utils'
-import { formatBundleFilename, withTaskName, writeBundles } from '../utils'
+import {
+  formatBundleFilename,
+  generateExternal,
+  withTaskName,
+  writeBundles,
+} from '../utils'
 import { target } from '../build-info'
 import type { TaskFunction } from 'gulp'
 import type { Plugin } from 'rollup'
@@ -60,7 +65,7 @@ async function buildFullEntry(minify: boolean) {
   const bundle = await rollup({
     input: path.resolve(epRoot, 'index.ts'),
     plugins,
-    external: ['vue'],
+    external: await generateExternal({ full: true }),
     treeshake: true,
   })
   await writeBundles(bundle, [

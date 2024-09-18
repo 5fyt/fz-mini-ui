@@ -9,8 +9,9 @@ import commonjs from '@rollup/plugin-commonjs'
 import esbuild from 'rollup-plugin-esbuild'
 import { epRoot, excludeFiles, pkgRoot } from '@fz-mini/build-utils'
 import { buildConfigEntries, target } from '../build-info'
-import { writeBundles } from '../utils'
+import { generateExternal, writeBundles } from '../utils'
 import type { OutputOptions } from 'rollup'
+import consola from 'consola'
 export const buildModules = async () => {
   const input = excludeFiles(
     await glob('**/*.{js,vue,ts}', {
@@ -19,6 +20,7 @@ export const buildModules = async () => {
       onlyFiles: true,
     })
   )
+  consola.success(input)
   const bundle = await rollup({
     input,
     plugins: [
@@ -44,7 +46,7 @@ export const buildModules = async () => {
         },
       }),
     ],
-    external: ['vue'],
+    external: await generateExternal({ full: false }),
     treeshake: false,
   })
   await writeBundles(

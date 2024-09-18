@@ -1,0 +1,1 @@
+{"version":3,"file":"runtime.mjs","sources":["../../../../../../../packages/utils/vue/props/runtime.ts"],"sourcesContent":["import type { PropType } from 'vue'\r\nexport const definePropType = <T>(val: any): PropType<T> => val\r\n"],"names":[],"mappings":"AACa,MAAA,cAAA,GAAiB,CAAI,GAA0B,KAAA;;;;"}

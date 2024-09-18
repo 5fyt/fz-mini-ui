@@ -2,9 +2,9 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var index = require('./components/icon/index.js');
+var index = require('./packages/components/icon/index.js');
 
 var Components = [index.FzIcon];
 
-exports["default"] = Components;
+exports.default = Components;
 //# sourceMappingURL=component.js.map

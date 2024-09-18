@@ -12,6 +12,7 @@ import { iconProps } from './icon'
 import type { CSSProperties } from 'vue'
 defineOptions({
   name: 'FzIcon',
+  inheritAttrs: false,
 })
 const props = defineProps(iconProps)
 const ns = useNamespace('icon')
