@@ -102,3 +102,7 @@ export const buildFullBundle: TaskFunction = parallel(
   withTaskName('buildFullMinified', buildFull(true)),
   withTaskName('buildFull', buildFull(false))
 )
+// export const buildFullBundle: TaskFunction = parallel(
+//   buildFull(true),
+//   withTaskName('buildFull', buildFull(false))
+// )

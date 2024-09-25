@@ -1,0 +1,41 @@
+.fz-icon--right {
+  margin-right: 5px;
+}
+
+.fz-icon--left {
+  margin-left: 5px;
+}
+
+.fz-icon-loading {
+  animation: rotating 2s linear infinite;
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.fz-icon {
+  --color: inherit;
+  height: 1em;
+  width: 1em;
+  line-height: 1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  fill: currentColor;
+  color: var(--color);
+  font-size: inherit;
+}
+.fz-icon.is-loading {
+  animation: rotating 2s linear infinite;
+}
+
+.fz-icon svg {
+  width: 1em;
+  height: 1em;
+}

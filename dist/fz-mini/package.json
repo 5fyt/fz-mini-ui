@@ -1,0 +1,37 @@
+{
+  "name": "fz-mini",
+  "version": "0.0.0-dev.1",
+  "description": "A Component Library for Vue3",
+  "keywords": [
+    "fz-mini",
+    "fz",
+    "component library",
+    "ui",
+    "vue"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.mjs",
+  "types": "es/index.d.ts",
+  "unpkg": "dist/index.full.js",
+  "jsdelivr": "dist/index.full.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "not ie 11",
+    "not op_mini all"
+  ],
+  "dependencies": {
+    "@types/lodash": "^4.17.7",
+    "@types/lodash-es": "^4.17.12"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "vue": "^3.4.31"
+  }
+}

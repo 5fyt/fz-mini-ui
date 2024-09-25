@@ -1,0 +1,31 @@
+@forward 'config';
+@use 'config' as *;
+
+//BEM
+@mixin b($block) {
+  $B: $namespace + $common-separator + $block !global;
+  .#{$B} {
+    @content;
+  }
+}
+@mixin when($state) {
+  @at-root {
+    &.#{$stateSuffix + $state} {
+      @content;
+    }
+  }
+}
+@mixin e($element) {
+  @at-root {
+    &.#{$miniui-separator + $element} {
+      @content;
+    }
+  }
+}
+@mixin m($modifier) {
+  @at-root {
+    &.#{$modifier-separator + $modifier} {
+      @content;
+    }
+  }
+}
