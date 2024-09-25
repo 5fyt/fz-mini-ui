@@ -12,6 +12,7 @@
     "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
     "clean:dist": "rimraf dist",
     "build": "pnpm run -C internal/build start",
+    "build:theme": "pnpm run -C packages/theme-chalk build",
     "runall": "pnpm run typecheck:web && pnpm run typecheck:play",
     "typecheck": "run-p typecheck:web typecheck:play typecheck:node",
     "typecheck:node": "tsc -p tsconfig.node.json --noEmit",

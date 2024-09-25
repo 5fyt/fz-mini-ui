@@ -8,6 +8,7 @@
   "author": "",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf dist",
     "build": "gulp --require @esbuild-kit/cjs-loader"
   },
   "devDependencies": {
