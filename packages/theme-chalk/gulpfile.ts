@@ -76,10 +76,12 @@ function buildThemeChalk() {
     .pipe(dest(buildFolder))
 }
 
+// 将theme-chalk 文件打包好的dist文件复制到dist/theme-chalk目录下
 export function copyThemeChalkBundle() {
-  return src(path.resolve(buildFolder, '**/*')).pipe(dest(buildBundle))
+  return src(`${buildFolder}/**`).pipe(dest(buildBundle))
 }
 
+// 复制theme-chalk 目录下的src所有文件到dist/theme-chalk/src目录下
 export function copyThemeChalkSource() {
   return src(path.resolve(__dirname, 'src/**')).pipe(
     dest(path.resolve(buildBundle, 'src'))
