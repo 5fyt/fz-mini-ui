@@ -1,4 +1,4 @@
-@use 'mixins/mixins.scss' as *;
+@use 'mixins/mixins' as *;
 
 .#{$namespace}-icon--right {
   margin-right: 5px;

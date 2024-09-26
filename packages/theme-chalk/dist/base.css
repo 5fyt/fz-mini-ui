@@ -1,14 +1,15 @@
-@use 'mixins/mixins' as *;
-
-.#{$namespace}-icon--right {
+.fz-icon--right {
   margin-right: 5px;
 }
-.#{$namespace}-icon--left {
+
+.fz-icon--left {
   margin-left: 5px;
 }
-.#{$namespace}-icon-loading {
+
+.fz-icon-loading {
   animation: rotating 2s linear infinite;
 }
+
 @keyframes rotating {
   0% {
     transform: rotateZ(0deg);
@@ -17,7 +18,7 @@
     transform: rotateZ(360deg);
   }
 }
-@include b(icon) {
+.fz-icon {
   --color: inherit;
   height: 1em;
   width: 1em;
@@ -29,11 +30,12 @@
   fill: currentColor;
   color: var(--color);
   font-size: inherit;
-  @include when(loading) {
-    animation: rotating 2s linear infinite;
-  }
-  svg {
-    width: 1em;
-    height: 1em;
-  }
+}
+.fz-icon.is-loading {
+  animation: rotating 2s linear infinite;
+}
+
+.fz-icon svg {
+  width: 1em;
+  height: 1em;
 }
