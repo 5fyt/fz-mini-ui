@@ -1,1 +1,1 @@
-{"version":3,"file":"base.scss.mjs","sources":["../../../../../packages/theme-chalk/src/base.scss"],"sourcesContent":["@use 'icon.scss';\n"],"names":[],"mappings":"AAAA,KAAK,WAAW"}
+{"version":3,"file":"base.scss.mjs","sources":["../../../../../packages/theme-chalk/src/base.scss"],"sourcesContent":["@use 'icon.scss';\r\n"],"names":[],"mappings":"AAAA,KAAK,WAAW"}

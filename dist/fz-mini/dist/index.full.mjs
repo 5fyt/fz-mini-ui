@@ -157,4 +157,4 @@ var installer = makeInstaller([...Components]);
 const install = installer.install;
 const version = installer.version;
 
-export { installer as default, install, makeInstaller, version };
+export { FzIcon, installer as default, iconProps, install, makeInstaller, version };

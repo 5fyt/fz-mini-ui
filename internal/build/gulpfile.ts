@@ -60,9 +60,9 @@ export default series(
       ),
       copyFullStyle
     )
-  ),
+  )
 
-  parallel(copyTypesDefinitions, copyFiles)
+  // parallel(copyTypesDefinitions, copyFiles)
 )
 //导入模块 buildModules buildFullBundle
 export * from './src'

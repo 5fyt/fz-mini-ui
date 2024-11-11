@@ -161,7 +161,9 @@
   const install = installer.install;
   const version = installer.version;
 
+  exports.FzIcon = FzIcon;
   exports.default = installer;
+  exports.iconProps = iconProps;
   exports.install = install;
   exports.makeInstaller = makeInstaller;
   exports.version = version;

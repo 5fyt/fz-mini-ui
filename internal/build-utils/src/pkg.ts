@@ -1,6 +1,7 @@
 import type { ProjectManifest } from '@pnpm/types'
 //获取packages/fz-mini/package.json 所有配置项
 export const getPackageManifest = (pkgPath: string) => {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   return require(pkgPath) as ProjectManifest
 }
 //获取 package.json 中的dependencies 和 peerDependenices 的全部键名
@@ -16,7 +17,7 @@ export const getPackageDependencies = (
 }
 //过滤参数中的node_modules,gulpfile,dist 目录
 export const excludeFiles = (files: string[]) => {
-  const excludes = ['node_modules', 'gulpfile', 'dist']
+  const excludes = ['node_modules', 'test', 'gulpfile', 'dist']
   return files.filter(
     (path) => !excludes.some((exclude) => path.includes(exclude))
   )

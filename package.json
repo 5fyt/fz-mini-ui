@@ -35,6 +35,8 @@
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@esbuild-kit/cjs-loader": "^2.4.4",
     "@fz-mini/build": "workspace:^",
     "@fz-mini/build-utils": "workspace:*",
@@ -49,8 +51,9 @@
     "@vue/test-utils": "^2.4.6",
     "eslint": "^8.23.1",
     "eslint-define-config": "^2.1.0",
+    "fast-glob": "^3.3.2",
     "happy-dom": "^15.7.4",
-    "husky": "^8.0.0",
+    "husky": "^9.1.6",
     "jsdom": "^25.0.0",
     "lint-staged": "^15.2.8",
     "prettier": "^3.3.3",
@@ -60,7 +63,8 @@
     "typescript": "^5.5.4",
     "unplugin-vue-macros": "^2.12.2",
     "vitest": "^2.1.1",
-    "vue": "^3.4.31"
+    "vue": "^3.4.31",
+    "vue-tsc": "^2.0.24"
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx,md,json}": "eslint --fix"
