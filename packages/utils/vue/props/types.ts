@@ -1,5 +1,6 @@
+import type { epPropKey } from './runtime'
 import type { IfNever, UnknownToNever, WritableArray } from './util'
-import type { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes, PropType } from 'vue'
 /**
  * Extract all value types from object type T
  *
@@ -52,6 +53,12 @@ export type EpPropMergeType<Type, Value, Validator> =
   | UnknownToNever<Value>
   | UnknownToNever<Validator>
 
+/**
+ * Handling default values for input (constraints)
+ * If the default value is the form of an object or array, it is returned as a function to avoid interfering with data
+ * 处理输入参数的默认值（约束）
+ * 如果默认值是对象或者数组的形式，则以函数方式返回避免干扰数据
+ */
 export type EpPropInputDefault<
   Required extends boolean,
   Default
@@ -61,6 +68,22 @@ export type EpPropInputDefault<
   ? () => Default
   : (() => Default) | Default
 
+/**
+ * input prop `buildProp` or `buildProps` (constraints)
+ *
+ * prop 输入参数（约束）
+ *
+ * @example
+ * EpPropInput<StringConstructor, 'a', never, never, true>
+ * ⬇️
+ * {
+    type?: StringConstructor | undefined;
+    required?: true | undefined;
+    values?: readonly "a"[] | undefined;
+    validator?: ((val: any) => boolean) | ((val: any) => val is never) | undefined;
+    default?: undefined;
+  }
+ */
 export type EpPropInput<
   Type,
   Values,
@@ -74,3 +97,54 @@ export type EpPropInput<
   validator?: ((val: any) => val is Validator) | ((val: any) => boolean)
   defalut?: EpPropInputDefault<Required, Default>
 }
+
+/**
+ * output prop `buildProp` or `buildProps`.
+ *
+ * prop 输出参数。
+ *
+ * @example
+ * EpProp<'a', 'b', true>
+ * ⬇️
+ * {
+    readonly type: PropType<"a">;
+    readonly required: true;
+    readonly validator: ((val: unknown) => boolean) | undefined;
+    readonly default: "b";
+    __epPropKey: true;
+  }
+ */
+export type EpProp<Type, Required, Default> = {
+  readonly type: PropType<Type>
+  readonly required: [Required] extends [true] ? true : false
+  readonly validator: ((val: unknown) => boolean) | undefined
+  [epPropKey]: true
+} & IfNever<Default, unknown, { readonly default: Default }>
+
+/**
+ * Determine if it is `EpProp`
+ */
+export type IfEpProp<T, Y, N> = T extends { [epPropKey]: true } ? Y : N
+
+/**
+ * Finalized conversion output
+ *
+ * 最终转换 EpProp
+ */
+export type EpPropFinalized<Type, Value, Validator, Default, Required> = EpProp<
+  EpPropMergeType<Type, Value, Validator>,
+  UnknownToNever<Default>,
+  Required
+>
+
+/**
+ * Native prop types, e.g: `Function`, `StringConstructor`, `null`, `undefined`, etc.
+ *
+ * 原生 prop `类型，Function`、`StringConstructor`、`null`、`undefined` 等
+ */
+export type NativePropType =
+  | ((...args: any) => any)
+  | { new (...args: any): any }
+  | undefined
+  | null
+export type IfNativePropType<T, Y, N> = [T] extends [NativePropType] ? Y : N
