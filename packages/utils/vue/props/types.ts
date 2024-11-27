@@ -86,16 +86,16 @@ export type EpPropInputDefault<
  */
 export type EpPropInput<
   Type,
-  Values,
+  Value,
   Validator,
-  Default,
+  Default extends EpPropMergeType<Type, Value, Validator>,
   Required extends boolean
 > = {
   type?: Type
   required?: Required
-  values?: Values
+  values?: readonly Value[]
   validator?: ((val: any) => val is Validator) | ((val: any) => boolean)
-  defalut?: EpPropInputDefault<Required, Default>
+  default?: EpPropInputDefault<Required, Default>
 }
 
 /**
@@ -114,7 +114,7 @@ export type EpPropInput<
     __epPropKey: true;
   }
  */
-export type EpProp<Type, Required, Default> = {
+export type EpProp<Type, Default, Required> = {
   readonly type: PropType<Type>
   readonly required: [Required] extends [true] ? true : false
   readonly validator: ((val: unknown) => boolean) | undefined
@@ -148,3 +148,17 @@ export type NativePropType =
   | undefined
   | null
 export type IfNativePropType<T, Y, N> = [T] extends [NativePropType] ? Y : N
+
+/**
+ * Convert input to EpProp
+ * 将输入转换成输出
+ */
+export type EpPropConvert<Input> = Input extends EpPropInput<
+  infer Type,
+  infer Value,
+  infer Validator,
+  any,
+  infer Required
+>
+  ? EpPropFinalized<Type, Value, Validator, Input['default'], Required>
+  : never
