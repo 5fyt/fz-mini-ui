@@ -2,12 +2,36 @@
 @use 'config' as *;
 
 //BEM
+// The `b` mixin defines the base block name for a component following the BEM naming convention.
+// Example usage:
+// @include b('button') {
+//   color: blue;
+// }
+// .fz-button {
+//   color: blue;
+// }
 @mixin b($block) {
   $B: $namespace + $common-separator + $block !global;
+
   .#{$B} {
     @content;
   }
 }
+
+// The `when` mixin is used to define a state for a component, such as 'is-active' or 'is-disabled'.
+// Example usage:
+// @include b('button') {
+//   ...
+//   @include when('disabled') {
+//     opacity: 0.5;
+//   }
+// }
+// .fz-button {
+//   ...
+// }
+// .fz-button.is-disabled {
+//   opacity: 0.5;
+// }
 @mixin when($state) {
   @at-root {
     &.#{$stateSuffix + $state} {
@@ -15,16 +39,67 @@
     }
   }
 }
+
+// The `e` mixin defines elements of a block following the BEM convention.
+// Example usage:
+// @include b('card') {
+//   ...
+//   @include e('header') {
+//     font-size: 16px;
+//   }
+// }
+// .fz-card {
+//   ...
+// }
+// .fz-card__header {
+//   font-size: 16px;
+// }
 @mixin e($element) {
+  $E: $element !global;
+  $selector: &;
+  $currentSelector: '';
+  @each $unit in $element {
+    $currentSelector: #{$currentSelector +
+      $selector +
+      $fz-separator +
+      $unit +
+      ','};
+  }
+
   @at-root {
-    &.#{$miniui-separator + $element} {
+    #{$currentSelector} {
       @content;
     }
   }
 }
+
+// The `m` mixin defines modifiers of a block or element following the BEM convention.
+// Example usage:
+// @include b('button') {
+//   ...
+//   @include m('primary') {
+//     background-color: blue;
+//   }
+// }
+// .fz-button {
+//   ...
+// }
+// .fz-button--primary {
+//   background-color: blue;
+// }
 @mixin m($modifier) {
+  $selector: &;
+  $currentSelector: '';
+  @each $unit in $modifier {
+    $currentSelector: #{$currentSelector +
+      $selector +
+      $modifier-separator +
+      $unit +
+      ','};
+  }
+
   @at-root {
-    &.#{$modifier-separator + $modifier} {
+    #{$currentSelector} {
       @content;
     }
   }

@@ -1,0 +1,79 @@
+@use './function.scss' as *;
+
+// set css var value, because we need translate value to string
+// for example:
+// @include set-css-var-value(('color', 'primary'), red);
+// --el-color-primary: red;
+@mixin set-css-var-value($name, $value) {
+  #{joinVarName($name)}: #{$value};
+}
+
+// @include set-css-var-type('color', 'primary', $colors);
+// --el-color-primary: #{map.get($colors, 'primary','base')};
+@mixin set-css-var-type($name, $type, $variables) {
+  #{getCssVarName($name,$type)}: #{map.get($variables, $type)};
+}
+
+/** set-css-color-type($colors,'primary')
+ * --fz-color-primary: #409eff;
+ * --fz-color-primary-light-3: #79bbff;
+ * --fz-color-primary-light-4: #8cc5ff;
+ * --fz-color-primary-light-7: #b3d8ff;
+ * --fz-color-primary-light-8: #c6e2ff;
+ * --fz-color-primary-light-9: #d9ecff;
+*/
+@mixin set-css-color-type($colors, $type) {
+  @include set-css-var-value(('color', $type), map.get($colors, $type, 'base'));
+
+  @each $i in (3, 4, 7, 8, 9) {
+    @include set-css-var-value(
+      ('color', $type, 'light', $i),
+      map.get($colors, $type, 'light-#{$i}')
+    );
+  }
+}
+
+// Dynamically generates CSS variables for a component based on a map of attributes and values.
+// @include set-component-css-var('button', (
+//   'default': #fff,
+//   'hover': #f5f5f5,
+//   'active': #e6e6e6
+// ));==>
+// {
+// --button: #fff;
+// --button-hover: #f5f5f5;
+// --button-active: #e6e6e6;
+// }
+@mixin set-component-css-var($name, $variables) {
+  @each $attribute, $value in $variables {
+    @if $attribute== 'default' {
+      #{getCssVarName($name)}: #{$value};
+    } @else {
+      #{getCssVarName($name,$attribute)}: #{$value};
+    }
+  }
+}
+
+// Generates a CSS variable for the RGB values of a specified color type.
+// for example:
+// @include set-css-color-rgb('primary')
+// --fz-color-primary-rgb: 64, 158, 255;
+@mixin set-css-color-rgb($type) {
+  $color: map.get($colors, $type, 'base');
+  @include set-css-var-value(
+    ('color', $type, 'rgb'),
+    #{color.channel($color, 'red'),
+    color.channel($color, 'green'),
+    color.channel($color, 'blur')}
+  );
+}
+
+// generate css var from existing css var
+// for example:
+// @include css-var-from-global(('button', 'text-color'), ('color', $type))
+// --el-button-text-color: var(--el-color-#{$type});
+@mixin css-var-from-global($var, $gVar) {
+  $varName: joinVarName($var);
+  $gVarName: joinVarName($gVar);
+  #{$varName}: var(#{$gVarName});
+}
