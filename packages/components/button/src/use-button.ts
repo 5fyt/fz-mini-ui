@@ -1,4 +1,5 @@
-import { type SetupContext, computed, ref, useSlots } from 'vue'
+import { type SetupContext, computed, inject, ref, useSlots } from 'vue'
+import { buttonGroupContextKey } from './constants'
 import type { ButtonEmits, ButtonProps } from './button'
 
 export const useButton = (
@@ -6,8 +7,9 @@ export const useButton = (
   emits: SetupContext<ButtonEmits>['emit']
 ) => {
   const slots = useSlots()
-  const _type = computed(() => props.type || '')
-  const _size = computed(() => props.size || '')
+  const buttonGroupContext = inject(buttonGroupContextKey, undefined)
+  const _type = computed(() => props.type || buttonGroupContext?.type || '')
+  const _size = computed(() => props.size || buttonGroupContext?.size || '')
   const _disabled = computed(() => props.disabled || false)
   const autoInsertSpace = computed(() => props.autoInsertSpace ?? false)
   const _ref = ref<HTMLButtonElement>()

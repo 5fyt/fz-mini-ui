@@ -37,6 +37,8 @@
   // Fill --el-fill-color-#{$type}
   @include set-component-css-var('fill-color', $fill-color);
 
+  @include set-component-css-var('mask-color', $mask-color);
+
   // Border
   @include set-css-var-value('border-width', $border-width);
   @include set-css-var-value('border-style', $border-style);

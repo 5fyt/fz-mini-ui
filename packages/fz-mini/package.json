@@ -27,6 +27,7 @@
     "not op_mini all"
   ],
   "dependencies": {
+    "@ctrl/tinycolor": "^4.1.0",
     "@types/lodash": "^4.17.7",
     "@types/lodash-es": "^4.17.12"
   },

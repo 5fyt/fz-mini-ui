@@ -4,6 +4,7 @@
     v-bind="_props"
     ref="_ref"
     :class="buttonKls"
+    :style="buttonStyle"
     @click="handleClick"
   >
     <template v-if="loading">
@@ -30,6 +31,7 @@ import { FzIcon } from '@fz-mini/components/icon'
 import { useNamespace } from '@fz-mini/hooks'
 import { buttonEmits, buttonProps } from './button'
 import { useButton } from './use-button'
+import { useButtonCustomStyle } from './button-custom'
 
 defineOptions({ name: 'FzButton' })
 const props = defineProps(buttonProps)
@@ -39,6 +41,7 @@ const ns = useNamespace('button')
 const { _type, _size, _disabled, _ref, _props, shouldAddSpace, handleClick } =
   useButton(props, emits)
 
+const buttonStyle = useButtonCustomStyle(props)
 const buttonKls = computed(() => [
   ns.b(),
   ns.m(_type.value),
@@ -49,7 +52,7 @@ const buttonKls = computed(() => [
   ns.is('round', props.round),
   ns.is('circle', props.circle),
   ns.is('text', props.text),
-  ns.is('text', props.text),
+  ns.is('link', props.link),
   ns.is('has-bg', props.bg),
 ])
 

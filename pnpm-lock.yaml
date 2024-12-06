@@ -276,6 +276,9 @@ importers:
 
   packages/fz-mini:
     dependencies:
+      '@ctrl/tinycolor':
+        specifier: ^4.1.0
+        version: 4.1.0
       '@types/lodash':
         specifier: ^4.17.7
         version: 4.17.7
@@ -551,6 +554,10 @@ packages:
   '@commitlint/types@19.5.0':
     resolution: {integrity: sha512-DSHae2obMSMkAtTBSOulg5X7/z+rGLxcXQIkg3OmWvY6wifojge5uVMydfhUvs7yQj+V7jNmRZ2Xzl8GJyqRgg==}
     engines: {node: '>=v18'}
+
+  '@ctrl/tinycolor@4.1.0':
+    resolution: {integrity: sha512-WyOx8cJQ+FQus4Mm4uPIZA64gbk3Wxh0so5Lcii0aJifqwoVOlfFtorjLE0Hen4OYyHZMXDWqMmaQemBhgxFRQ==}
+    engines: {node: '>=14'}
 
   '@element-plus/icons-vue@2.3.1':
     resolution: {integrity: sha512-XxVUZv48RZAd87ucGS48jPf6pKu0yV5UCg9f4FFwtrYxXOwWuVJo6wOvSLKEoMQKjv8GsX/mhP6UsC1lRwbUWg==}
@@ -6460,6 +6467,8 @@ snapshots:
     dependencies:
       '@types/conventional-commits-parser': 5.0.0
       chalk: 5.3.0
+
+  '@ctrl/tinycolor@4.1.0': {}
 
   '@element-plus/icons-vue@2.3.1(vue@3.5.6(typescript@5.6.2))':
     dependencies:
