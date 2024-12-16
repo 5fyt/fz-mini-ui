@@ -1,5 +1,68 @@
 @use 'config';
 
+// BEM support Func
+
+// 将选择器转换为字符串并去掉最外层括号
+
+@function selectorToString($selector) {
+  // 将选择器转换为字符串形式
+  $selector: inspect($selector);
+
+  // 去掉选择器最外层的括号
+  $selector: str-slice($selector, 2, -2);
+
+  // 返回处理后的选择器字符串
+  @return $selector;
+}
+
+// 检查选择器是否包含修饰符 (modifier)
+@function containsModifier($selector) {
+  // 将选择器转换为字符串
+  $selector: selectorToString($selector);
+
+  // 检查是否包含修饰符分隔符（通常是两个短横线 --）
+  @if str-index($selector, config.$modifier-separator) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+// 检查选择器是否包含特定状态标记
+@function containWhenFlag($selector) {
+  // 将选择器转换为字符串
+  $selector: selectorToString($selector);
+
+  // 检查是否包含状态前缀（通常是 .is-）
+  @if str-index($selector, '.' + config.$state-prefix) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+// 检查选择器是否包含伪类
+@function containPseudoClass($selector) {
+  // 将选择器转换为字符串
+  $selector: selectorToString($selector);
+
+  // 检查是否包含伪类标记（通常是冒号 :）
+  @if str-index($selector, ':') {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+// 综合判断选择器是否符合以下任一规则：
+// 1. 包含修饰符
+// 2. 包含特定状态标记
+// 3. 包含伪类
+@function hitAllSpecialNestRule($selector) {
+  @return containsModifier($selector) or containWhenFlag($selector) or
+    containPseudoClass($selector);
+}
+
 // join var name
 //joinVarName('button','text-color'）=> --fz-button-text-color
 @function joinVarName($list) {

@@ -1,4 +1,8 @@
+@use 'function' as *;
+
+//forward mixins
 @forward 'config';
+@forward 'function';
 @use 'config' as *;
 
 //BEM
@@ -66,9 +70,19 @@
       ','};
   }
 
-  @at-root {
-    #{$currentSelector} {
-      @content;
+  @if hitAllSpecialNestRule($selector) {
+    @at-root {
+      #{$selector} {
+        #{$currentSelector} {
+          @content;
+        }
+      }
+    }
+  } @else {
+    @at-root {
+      #{$currentSelector} {
+        @content;
+      }
     }
   }
 }
